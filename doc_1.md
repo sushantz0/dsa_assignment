@@ -1,83 +1,36 @@
-(a) Data Structure Definition
+# Balanced Parentheses Checker in C
 
-In this program, a stack is used to check whether the parentheses in a mathematical expression are balanced.
+## Overview
 
-The stack is implemented using:
+This program checks whether a given mathematical expression has a **balanced number of parentheses**, brackets, and braces.  
+It uses a **stack** data structure to verify that every opening bracket has a corresponding closing bracket in the correct order.
 
-#define MAX 100
-char stack[MAX];
-int top = -1;
+---
 
+## Features
 
-stack is a character array to store opening brackets.
+- Checks `()`, `{}`, and `[]` brackets.
+- Supports any valid mathematical expression.
+- Prints whether the expression is **balanced** or **not balanced**.
+- Uses **stack operations** (`push`, `pop`) for validation.
 
-top keeps track of the last inserted element.
+---
 
-If top = -1, the stack is empty.
+## How It Works
 
-The stack works on the LIFO principle, meaning the last bracket inserted is checked first.
+1. Traverse the expression character by character.
+2. If an **opening bracket** is found, push it onto the stack.
+3. If a **closing bracket** is found:
+   - Pop the top element from the stack.
+   - Check if it matches the closing bracket.
+4. After traversing the entire expression:
+   - If the stack is empty → Expression is **balanced**.
+   - If the stack is not empty → Expression is **not balanced**.
 
-(b) Functions Implemented
+---
 
-push(char ch)
-Adds an opening bracket into the stack.
+## Usage
 
-pop()
-Removes and returns the top element from the stack.
-
-isMatchingPair(open, close)
-Checks if the opening and closing brackets match correctly.
-
-isBalanced(expr[])
-Scans the expression:
-
-Pushes opening brackets.
-
-Pops and checks when closing brackets appear.
-
-If stack is empty at the end → Balanced.
-
-Otherwise → Not Balanced.
-
-(c) Organization of main() Function
-
-The main() function:
-
-Takes the expression as input.
-
-Calls isBalanced() to check it.
-
-Prints whether the expression is balanced or not.
-
-It mainly handles input, function calling, and output display.
-
-(d) Sample Output
-
-Input 1:
-
-a + (b − c) ∗ (d
-
-
-Output:
-
-Expression is NOT Balanced
-
-
-Input 2:
-
-m + [a − b ∗ (c + d ∗ {m)]
-
-
-Output:
-
-Expression is NOT Balanced
-
-
-Input 3:
-
-a + (b − c)
-
-
-Output:
-
-Expression is Balanced
+1. Compile the program:
+   ```bash
+   gcc balanced_parentheses.c -o balanced_parentheses
